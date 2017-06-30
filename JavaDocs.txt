@@ -1,0 +1,307 @@
+Java structure:
+
+
+Package
+Class
+{
+data types
+userdefined methods
+main method
+{
+statements
+}
+}
+
+Class: blueprint that describes the state/behaviour
+
+in computer lang. state is stored in fields & behaviur is shown by methds
+
+A class in java contains:
+
+Data Member
+Method
+Constructor
+Block
+Class and Interface
+
+
+
+Object: state & behaviour
+
+eg: dog has states: color, breed     & Behviour: barking, eating
+
+
+
+Methods:  they show behaviours. A class may contain multiple methods performing diiferent behaviours(logics)
+
+
+Instance variables: Object's state is defined by variables.
+
+
+>>>>>>>>>>>>>>Java Syntex<<<<<<<<<<<<<<<<<<<
+
+Case sensitive
+
+Class name: 1st letter must be Uppercase
+
+MethOd Name:  strts with lower case & it uese camel casing( myFirstMethod)
+
+Program file name must be same as of Class name otherwise program will not be complied
+
+
+>>>>>>>>>>>>>>>Indentifiers<<<<<<<<<<<<<<<<<<<<<<<
+
+
+names of class, method must have some indentifirs:
+
+A to Z, $ , underscore
+
+
+>>>>>>>>>>>>>Modifiers<<<<<<<<<<<<<<<<<<<<
+
+
+We can modify methods, classes using modifiers
+
+ >> access modifiers :  default, public, private & protected
+
+ >> Non-access : final, abstract etc.
+
+
+
+Default:    visible to same class , other class of same package(by creating object of actual class)     , not in other class of other package(by making subclass, or object)	
+public:     visible to same class , other class of same package(by creating object of actual class)     , other class of other package(by making subclass, or object)
+protected:  visible to same class , other class of same package(by creating object of actual class)     , other class of other package(by making subclass)
+private:    visible to same class , not in other class of same package(by making subclass, or object)   , not in other class of other package(by making subclass, or object)
+
+
+
+
+>>>>>>>>>>>Variables<<<<<<<<<<<<<<<<<<<<<
+
+Local
+
+Class variables/Static
+
+Instance/non-static
+
+
+
+Member variables in a class—these are called fields.
+Variables in a method or block of code—these are called local variables.
+Variables in method declarations—these are called parameters.
+
+
+class A{  
+
+ int a=40;     //non static
+
+ static int b=50;   // static  
+   
+ public static void main(String args[]){ 
+
+   int c= 60;    // local
+  System.out.println("hello");
+  
+ } 
+ 
+}  
+
+
+
+Local:
+
+>>Access modifiers cannot be used for local variables
+
+>>There is no default value for local variables, 
+so local variables should be declared and an initial value should be assigned before the first use
+
+
+public void pupAge() {
+      int age=0;
+      age = age + 7;
+      System.out.println("Puppy age is : " + age);
+   }      
+
+
+
+
+
+Instance:
+
+>> Instance variables are created when an object is created with the use of the keyword 'new' 
+and destroyed when the object is destroyed.
+>> Access modifiers can be given for instance variables.
+>>Instance variables have default values.
+Instance variables can be accessed directly by calling the variable name inside the class.
+except by static methods
+
+
+public class Employee {
+
+public String name;         // instance 
+
+public Employee (String empName) {
+      name = empName;             // called directly
+   }
+
+
+
+
+public static void main(String args[]) {
+      Employee empOne = new Employee("Ransika");
+      empOne.setSalary(1000);
+      empOne.printEmp();
+
+
+
+
+
+
+
+
+
+**** Static method  can use static data member & can change its value
+
+**** static method can not call non-static method directly
+
+
+eg:   static------> static
+      non-static------> static
+      static------> non-static(((( direct Not possible)))
+      non static------>non static
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>Methods<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+public static int methodName(int a, int b) {
+   // body
+}    
+
+
+
+>>Overloading
+
+If a class has multiple methods having same name but different in parameters
+
+class Adder{  
+static int add(int a,int b){return a+b;}  
+static int add(int a,int b,int c){return a+b+c;}  
+}  
+class TestOverloading1{  
+public static void main(String[] args){  
+System.out.println(Adder.add(11,11));  
+System.out.println(Adder.add(11,11,11));  
+}}  
+
+
+>>Overriding
+
+If subclass (child class) has the same method as declared in the parent class
+
+
+
+
+
+void run(){System.out.println("Vehicle is running");}  
+}  
+class Bike2 extends Vehicle{  
+void run(){System.out.println("Bike is running safely");}  
+  
+public static void main(String args[]){  
+Bike2 obj = new Bike2();  
+obj.run();  
+} 
+
+
+If subclass (child class) has the same method as declared in the parent class
+
+
+
+
+
+
+
+>>>>>>>>>>>Abstraction<<<<<<<<<<<<<<<<
+
+Process of fetching relevent info out of large pool of info
+
+
+
+>>>>>>>>Encapsulation<<<<<<<<<<<<<<<<<
+
+encapsulation is a mechanism of wrapping data (variables) and code together as a single unit.
+
+Like you have put medicine in one capsule , where you can deal with capsule only not intenal medicine
+
+eg: hacking of back account
+
+
+>>>>>>>>>>>>>>>Inheritance<<<<<<<<<<<<<<<<<<<
+
+
+When a "class" acquires the property of another class it is known as Inheritance.
+ For example, a child inherits the traits of parents.
+
+
+class Subclass-name extends Superclass-name  
+{  
+   //methods and fields  
+}  
+
+
+>>>>>>>>>>>>Polymorphism<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+While Polymorphism means one name but many forms. For example, you have a smartphone for communication.
+ The communication mode you choose could be anything. 
+It can be a call, a text msg, a picture msg, mail, etc. 
+So the goal is common that is communication, but their approach is different. This is called Polymorphism.
+
+
+
+
+
+
+>>>>>>>>>>>>>Exception Handling<<<<<<<<<<<<<<<<<<<
+
+
+1) Checked: detected at compilation(IO exception)
+2) unchecked: detected at run time( Arthimetic exception nullpointer)
+
+
+There are 5 keywords used in java exception handling.
+
+try
+catch
+finally
+throw
+throws
+
+
+
+
+try{  
+//code that may throw exception  
+}catch(Exception_class_Name ref){}  
+
+
+
+
+public static void main(String args[]){  
+   try{  
+      int data=50/0;  
+   }catch(ArithmeticException e){System.out.println(e);}  
+   System.out.println("rest of the code...");  
+}  
+
+
+
+
+
+Java finally block is a block that is used to execute important code such as closing connection, stream etc.
+
+Java finally block is always executed whether exception is handled or not.
+
+Java finally block follows try or catch block.
